@@ -8,7 +8,6 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.STD_LOGIC_UNSIGNED.all;
 use IEEE.NUMERIC_STD.all;
-use work.paperoPackage.all;
 
 
 --!@copydoc PRBS32.vhd
