@@ -129,6 +129,19 @@ package basic_package is
       oQ      : out std_logic_vector (pWIDTH-1 downto 0)
       );
   end component;
+  -- parametric_fifo_synch_MLAB -----------------------------------------------------
+  component parametric_fifo_synch_MLAB is
+    generic(pWIDTH, pDEPTH, pUSEDW_WIDTH : natural;
+      pAEMPTY_VAL, pAFULL_VAL : natural;
+      pSHOW_AHEAD  : string);
+    port(iCLK, iRST : in  std_logic;
+      oAEMPTY, oEMPTY, oAFULL, oFULL : out std_logic;
+      oUSEDW  : out std_logic_vector (pUSEDW_WIDTH-1 downto 0);
+      iRD_REQ, iWR_REQ : in  std_logic;
+      iDATA   : in  std_logic_vector (pWIDTH-1 downto 0);
+      oQ      : out std_logic_vector (pWIDTH-1 downto 0)
+      );
+  end component;
   -- dp_fifo -------------------------------------------------------------------
   component parametric_fifo_dp is
     generic(pDEPTH, pWIDTHW, pWIDTHR : natural;
