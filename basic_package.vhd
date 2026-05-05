@@ -142,6 +142,26 @@ package basic_package is
       oQ      : out std_logic_vector (pWIDTH-1 downto 0)
       );
   end component;
+
+  -- parametric_ram_tp_MLAB -----------------------------------------------------
+  component parametric_ram_tp is
+    generic(
+      pWIDTH       : natural;  --!Word width
+      pDEPTH       : natural;  --!RAM number of word
+      pUSEDW_WIDTH : natural;  --!log2 of pDEPTH
+      pFORCE_MLAB  : natural   --! 1 = force MLAB, 0 = AUTO
+    );
+    port
+    (
+      iCLK        : in std_logic;
+      iData       : in std_logic_vector(pWIDTH-1 downto 0);
+      iRd_Addr    : in std_logic_vector(pUSEDW_WIDTH-1 downto 0);
+      iWr_Addr    : in std_logic_vector(pUSEDW_WIDTH-1 downto 0);
+      iWr_En      : in std_logic;
+      oData       : out std_logic_vector(pWIDTH-1 downto 0)
+    );
+  end component;
+
   -- dp_fifo -------------------------------------------------------------------
   component parametric_fifo_dp is
     generic(pDEPTH, pWIDTHW, pWIDTHR : natural;
