@@ -171,7 +171,7 @@ begin
             width_b         => pWIDTH,
             width_byteena_b => 1,
             outdata_aclr_b  => "NONE",
-            outdata_reg_b   => "CLOCK0",
+            outdata_reg_b   => "UNREGISTERED", --Riduco la latenza di 1CLK
 
             -- RAM implementation
             ram_block_type => f_ram_block_type(pFORCE_MLAB),
