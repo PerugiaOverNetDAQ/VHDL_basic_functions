@@ -177,7 +177,7 @@ begin
             ram_block_type => f_ram_block_type(pFORCE_MLAB),
 
             power_up_uninitialized => "FALSE",
-            read_during_write_mode_mixed_ports => "CONSTRAINED_DONT_CARE"
+            read_during_write_mode_mixed_ports => "DONT_CARE"
         )
         port map (
             clock0    => iCLK,
