@@ -162,6 +162,35 @@ package basic_package is
     );
   end component;
 
+
+
+  -- parametric_ram_dp ---------------------------------------------------------
+  -- True dual-port RAM. Both ports can read or write.
+  component parametric_ram_dp is
+    generic(
+      pWIDTH       : natural;  --!Word width
+      pDEPTH       : natural;  --!RAM number of words
+      pUSEDW_WIDTH : natural;  --!log2 of pDEPTH
+      pFORCE_MLAB  : natural   --! 1 = force MLAB, 0 = AUTO
+    );
+    port
+    (
+      iCLK     : in std_logic;
+
+      iData_A  : in  std_logic_vector(pWIDTH-1 downto 0);
+      iAddr_A  : in  std_logic_vector(pUSEDW_WIDTH-1 downto 0);
+      iWE_A    : in  std_logic;
+      iRE_A    : in  std_logic;
+      oData_A  : out std_logic_vector(pWIDTH-1 downto 0);
+
+      iData_B  : in  std_logic_vector(pWIDTH-1 downto 0);
+      iAddr_B  : in  std_logic_vector(pUSEDW_WIDTH-1 downto 0);
+      iWE_B    : in  std_logic;
+      iRE_B    : in  std_logic;
+      oData_B  : out std_logic_vector(pWIDTH-1 downto 0)
+    );
+  end component;
+
   -- dp_fifo -------------------------------------------------------------------
   component parametric_fifo_dp is
     generic(pDEPTH, pWIDTHW, pWIDTHR : natural;
